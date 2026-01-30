@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -5,7 +9,6 @@
 <title>Pipocando Alegria</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-/* ====== Estilo Global ====== */
 body {
     margin:0;
     font-family:Arial,sans-serif;
@@ -58,8 +61,6 @@ footer {
     padding:20px;
     margin-top:30px;
 }
-
-/* ====== Cardápio ====== */
 .cardapio {
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -96,8 +97,6 @@ select, input[type=number] {
     width:100%;
 }
 .botao-whats:hover { opacity:0.9; }
-
-/* ====== Orçamento ====== */
 .orcamento select, .orcamento input {
     width:100%;
     padding:10px;
@@ -107,8 +106,6 @@ select, input[type=number] {
     font-size:15px;
 }
 .valor { font-weight:bold; margin-top:10px; text-align:center; font-size:18px; }
-
-/* ====== Instagram ====== */
 .instagram-link {
     display:inline-block;
     background:#E1306C;
@@ -120,8 +117,6 @@ select, input[type=number] {
     margin-top:20px;
 }
 .instagram-link:hover { opacity:0.9; }
-
-/* ====== Responsividade ====== */
 @media(max-width:600px){
     header h1 { font-size:28px; }
     nav { flex-direction:column; gap:10px; }
@@ -130,13 +125,11 @@ select, input[type=number] {
 </head>
 <body>
 
-<!-- ====== Header ====== -->
 <header>
 <h1>Pipocando Alegria</h1>
 <p>Pipoca gourmet que espalha alegria em cada mordida! 🍿✨</p>
 </header>
 
-<!-- ====== Menu ====== -->
 <nav>
 <a href="#sobre">Sobre</a>
 <a href="#cardapio">Cardápio</a>
@@ -144,7 +137,6 @@ select, input[type=number] {
 <a href="#instagram">Instagram</a>
 </nav>
 
-<!-- ====== Sobre ====== -->
 <section id="sobre">
 <h2>Sobre a Pipocando Alegria</h2>
 <p style="text-align:center; font-size:18px;">
@@ -157,12 +149,10 @@ Venha experimentar e descubra como a Pipocando Alegria transforma cada mordida e
 </p>
 </section>
 
-<!-- ====== Cardápio ====== -->
 <section id="cardapio">
 <h2>Cardápio</h2>
 <div class="cardapio">
 
-<!-- Caramelo -->
 <div class="card">
 <h3>Caramelo</h3>
 <p>Pequeno: R$ 5 | Médio: R$ 7</p>
@@ -174,7 +164,6 @@ Venha experimentar e descubra como a Pipocando Alegria transforma cada mordida e
 <button class="botao-whats" onclick="pedido('Caramelo')">Pedir Caramelo 🍿</button>
 </div>
 
-<!-- Leite Ninho -->
 <div class="card">
 <h3>Leite Ninho</h3>
 <p>Pequeno: R$ 7 | Médio: R$ 9</p>
@@ -186,7 +175,6 @@ Venha experimentar e descubra como a Pipocando Alegria transforma cada mordida e
 <button class="botao-whats" onclick="pedido('Leite Ninho')">Pedir Leite Ninho 🍿</button>
 </div>
 
-<!-- Chocolate -->
 <div class="card">
 <h3>Chocolate</h3>
 <p>Pequeno: R$ 7 | Médio: R$ 9</p>
@@ -198,7 +186,6 @@ Venha experimentar e descubra como a Pipocando Alegria transforma cada mordida e
 <button class="botao-whats" onclick="pedido('Chocolate')">Pedir Chocolate 🍿</button>
 </div>
 
-<!-- Chocolate com Leite Ninho -->
 <div class="card">
 <h3>Chocolate com Leite Ninho</h3>
 <p>Pequeno: R$ 8 | Médio: R$ 12</p>
@@ -213,7 +200,6 @@ Venha experimentar e descubra como a Pipocando Alegria transforma cada mordida e
 </div>
 </section>
 
-<!-- ====== Eventos & Orçamentos ====== -->
 <section id="eventos">
 <h2>Eventos & Orçamentos</h2>
 <p style="text-align:center; font-size:16px; margin-bottom:20px;">
@@ -244,7 +230,6 @@ Transforme seu evento em uma explosão de sabor e alegria! 🍿✨ Selecione o s
 </div>
 </section>
 
-<!-- ====== Instagram ====== -->
 <section id="instagram">
 <h2>Instagram</h2>
 <p style="text-align:center; font-size:16px;">
@@ -255,12 +240,10 @@ Acompanhe nossas fotos, eventos e novidades no Instagram! 🍿✨
 </div>
 </section>
 
-<!-- ====== Footer ====== -->
 <footer>
 <p>&copy; 2026 Pipocando Alegria</p>
 </footer>
 
-<!-- ====== Scripts ====== -->
 <script>
 const precos = {
     "Caramelo": { "Pequeno":5, "Médio":7 },
@@ -295,10 +278,9 @@ function pedido(sabor){
 Sabor: ${sabor}
 Tamanho: ${tamanho}
 Quantidade: ${quantidade}`;
-    window.open("https://wa.me/556182193378text=" + encodeURIComponent(msg));
+    window.open("https://wa.me/556182193378?text=" + encodeURIComponent(msg));
 }
 
-// ====== Orçamento ======
 function calcularOrcamento(){
     const sabor = document.getElementById('orcamentoSabor').value;
     const tamanho = document.getElementById('orcamentoTamanho').value;
@@ -315,16 +297,13 @@ function enviarOrcamento(){
     const tamanho = document.getElementById('orcamentoTamanho').value;
     const qtd = document.getElementById('orcamentoQtd').value;
     const valor = document.getElementById('valorOrcamento').innerText;
-
     if(qtd <=0){ alert("Informe uma quantidade válida!"); return; }
-
     const msg = `Olá! Gostaria de um orçamento para evento 🍿
 Sabor: ${sabor}
 Tamanho: ${tamanho}
 Quantidade: ${qtd}
 ${valor}`;
-
-    window.open("https://wa.me/556182193378text=" + encodeURIComponent(msg));
+    window.open("https://wa.me/556182193378?text=" + encodeURIComponent(msg));
 }
 </script>
 
