@@ -1,1 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Pipocando Alegria</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/* ====== Estilo Global ====== */
+body {
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#FFF8E7;
+    color:#333;
+    scroll-behavior:smooth;
+}
+header {
+    background:#FFDD57;
+    padding:30px 20px;
+    text-align:center;
+    color:#8B4513;
+}
+header h1 {
+    margin:10px 0 5px;
+    font-size:36px;
+}
+header p {
+    font-size:18px;
+}
+nav {
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    background:#FF8C42;
+    padding:12px;
+    position: sticky;
+    top:0;
+    z-index:100;
+}
+nav a {
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+}
+section {
+    padding:50px 20px;
+    max-width:1100px;
+    margin:auto;
+}
+h2 {
+    color:#8B4513;
+    text-align:center;
+    margin-bottom:20px;
+}
+footer {
+    background:#8B4513;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
 
+/* ====== Cardápio ====== */
+.cardapio {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-top:30px;
+}
+.card {
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+    text-align:center;
+}
+.card h3 {
+    margin-top:0;
+    color:#FF8C42;
+}
+select, input[type=number] {
+    width:100%;
+    padding:10px;
+    margin-bottom:10px;
+    border-radius:6px;
+    border:1px solid #ccc;
+    font-size:15px;
+}
+.botao-whats {
+    background:#25D366;
+    color:white;
+    border:none;
+    padding:12px;
+    font-size:15px;
+    border-radius:8px;
+    cursor:pointer;
+    width:100%;
+}
+.botao-whats:hover { opacity:0.9; }
+
+/* ====== Orçamento ====== */
+.orcamento select, .orcamento input {
+    width:100%;
+    padding:10px;
+    margin-bottom:10px;
+    border-radius:6px;
+    border:1px solid #ccc;
+    font-size:15px;
+}
+.valor { font-weight:bold; margin-top:10px; text-align:center; font-size:18px; }
+
+/* ====== Instagram ====== */
+.instagram-link {
+    display:inline-block;
+    background:#E1306C;
+    color:white;
+    padding:15px 25px;
+    border-radius:10px;
+    text-decoration:none;
+    font-size:18px;
+    margin-top:20px;
+}
+.instagram-link:hover { opacity:0.9; }
+
+/* ====== Responsividade ====== */
+@media(max-width:600px){
+    header h1 { font-size:28px; }
+    nav { flex-direction:column; gap:10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ====== Header ====== -->
+<header>
+<h1>Pipocando Alegria</h1>
+<p>Pipoca gourmet que espalha alegria em cada mordida! 🍿✨</p>
+</header>
+
+<!-- ====== Menu ====== -->
+<nav>
+<a href="#sobre">Sobre</a>
+<a href="#cardapio">Cardápio</a>
+<a href="#eventos">Eventos & Orçamentos</a>
+<a href="#instagram">Instagram</a>
+</nav>
+
+<!-- ====== Sobre ====== -->
+<section id="sobre">
+<h2>Sobre a Pipocando Alegria</h2>
+<p style="text-align:center; font-size:18px;">
+Na Pipocando Alegria, cada pipoca é feita com <strong>amor, cuidado e criatividade</strong>. 
+Transformamos festas, aniversários e eventos corporativos em <strong>momentos deliciosos e inesquecíveis</strong>. 
+Com nossos sabores irresistíveis e toque especial, sua comemoração nunca mais será a mesma! 🎉🍿
+</p>
+<p style="text-align:center; font-size:16px; margin-top:20px;">
+Venha experimentar e descubra como a Pipocando Alegria transforma cada mordida em <strong>diversão e sabor</strong>!
+</p>
+</section>
+
+<!-- ====== Cardápio ====== -->
+<section id="cardapio">
+<h2>Cardápio</h2>
+<div class="cardapio">
+
+<!-- Caramelo -->
+<div class="card">
+<h3>Caramelo</h3>
+<p>Pequeno: R$ 5 | Médio: R$ 7</p>
+<select id="tamanhoCaramelo">
+<option value="Pequeno">Pequeno</option>
+<option value="Médio">Médio</option>
+</select>
+<input type="number" id="qtdCaramelo" min="0" max="3000" value="0">
+<button class="botao-whats" onclick="pedido('Caramelo')">Pedir Caramelo 🍿</button>
+</div>
+
+<!-- Leite Ninho -->
+<div class="card">
+<h3>Leite Ninho</h3>
+<p>Pequeno: R$ 7 | Médio: R$ 9</p>
+<select id="tamanhoLeiteNinho">
+<option value="Pequeno">Pequeno</option>
+<option value="Médio">Médio</option>
+</select>
+<input type="number" id="qtdLeiteNinho" min="0" max="3000" value="0">
+<button class="botao-whats" onclick="pedido('Leite Ninho')">Pedir Leite Ninho 🍿</button>
+</div>
+
+<!-- Chocolate -->
+<div class="card">
+<h3>Chocolate</h3>
+<p>Pequeno: R$ 7 | Médio: R$ 9</p>
+<select id="tamanhoChocolate">
+<option value="Pequeno">Pequeno</option>
+<option value="Médio">Médio</option>
+</select>
+<input type="number" id="qtdChocolate" min="0" max="3000" value="0">
+<button class="botao-whats" onclick="pedido('Chocolate')">Pedir Chocolate 🍿</button>
+</div>
+
+<!-- Chocolate com Leite Ninho -->
+<div class="card">
+<h3>Chocolate com Leite Ninho</h3>
+<p>Pequeno: R$ 8 | Médio: R$ 12</p>
+<select id="tamanhoChocoNinho">
+<option value="Pequeno">Pequeno</option>
+<option value="Médio">Médio</option>
+</select>
+<input type="number" id="qtdChocoNinho" min="0" max="3000" value="0">
+<button class="botao-whats" onclick="pedido('ChocoNinho')">Pedir Choco + Ninho 🍿</button>
+</div>
+
+</div>
+</section>
+
+<!-- ====== Eventos & Orçamentos ====== -->
+<section id="eventos">
+<h2>Eventos & Orçamentos</h2>
+<p style="text-align:center; font-size:16px; margin-bottom:20px;">
+Transforme seu evento em uma explosão de sabor e alegria! 🍿✨ Selecione o sabor, tamanho e quantidade que deseja para seu orçamento.
+</p>
+
+<div class="orcamento">
+<label>Sabor:</label>
+<select id="orcamentoSabor">
+<option value="Caramelo">Caramelo</option>
+<option value="Leite Ninho">Leite Ninho</option>
+<option value="Chocolate">Chocolate</option>
+<option value="ChocoNinho">Chocolate com Leite Ninho</option>
+</select>
+
+<label>Tamanho:</label>
+<select id="orcamentoTamanho">
+<option value="Pequeno">Pequeno</option>
+<option value="Médio">Médio</option>
+</select>
+
+<label>Quantidade:</label>
+<input type="number" id="orcamentoQtd" min="0" max="3000" value="0" oninput="calcularOrcamento()">
+
+<p class="valor" id="valorOrcamento">Valor total: R$ 0,00</p>
+
+<button class="botao-whats" onclick="enviarOrcamento()">Solicitar orçamento no WhatsApp</button>
+</div>
+</section>
+
+<!-- ====== Instagram ====== -->
+<section id="instagram">
+<h2>Instagram</h2>
+<p style="text-align:center; font-size:16px;">
+Acompanhe nossas fotos, eventos e novidades no Instagram! 🍿✨
+</p>
+<div style="text-align:center;">
+<a href="https://instagram.com/pipocando_.alegria._" target="_blank" class="instagram-link">Seguir no Instagram</a>
+</div>
+</section>
+
+<!-- ====== Footer ====== -->
+<footer>
+<p>&copy; 2026 Pipocando Alegria</p>
+</footer>
+
+<!-- ====== Scripts ====== -->
+<script>
+const precos = {
+    "Caramelo": { "Pequeno":5, "Médio":7 },
+    "Leite Ninho": { "Pequeno":7, "Médio":9 },
+    "Chocolate": { "Pequeno":7, "Médio":9 },
+    "ChocoNinho": { "Pequeno":8, "Médio":12 }
+};
+
+function pedido(sabor){
+    let tamanho, quantidade;
+    switch(sabor){
+        case 'Caramelo':
+            tamanho = document.getElementById('tamanhoCaramelo').value;
+            quantidade = document.getElementById('qtdCaramelo').value;
+            break;
+        case 'Leite Ninho':
+            tamanho = document.getElementById('tamanhoLeiteNinho').value;
+            quantidade = document.getElementById('qtdLeiteNinho').value;
+            break;
+        case 'Chocolate':
+            tamanho = document.getElementById('tamanhoChocolate').value;
+            quantidade = document.getElementById('qtdChocolate').value;
+            break;
+        case 'ChocoNinho':
+            tamanho = document.getElementById('tamanhoChocoNinho').value;
+            quantidade = document.getElementById('qtdChocoNinho').value;
+            sabor = "Chocolate com Leite Ninho";
+            break;
+    }
+    if(quantidade <=0){ alert("Selecione uma quantidade maior que 0!"); return; }
+    let msg = `Olá! Quero comprar pipoca gourmet 🍿
+Sabor: ${sabor}
+Tamanho: ${tamanho}
+Quantidade: ${quantidade}`;
+    window.open("https://wa.me/556182193378text=" + encodeURIComponent(msg));
+}
+
+// ====== Orçamento ======
+function calcularOrcamento(){
+    const sabor = document.getElementById('orcamentoSabor').value;
+    const tamanho = document.getElementById('orcamentoTamanho').value;
+    const qtd = Number(document.getElementById('orcamentoQtd').value);
+    if(qtd <= 0){ document.getElementById('valorOrcamento').innerText = "Valor total: R$ 0,00"; return; }
+    let valor = precos[sabor][tamanho] * qtd;
+    let desconto = valor >= 400 ? 0.10 : valor >= 200 ? 0.05 : 0;
+    let total = valor - (valor*desconto);
+    document.getElementById('valorOrcamento').innerText = "Valor total com desconto: R$ " + total.toFixed(2);
+}
+
+function enviarOrcamento(){
+    const sabor = document.getElementById('orcamentoSabor').value;
+    const tamanho = document.getElementById('orcamentoTamanho').value;
+    const qtd = document.getElementById('orcamentoQtd').value;
+    const valor = document.getElementById('valorOrcamento').innerText;
+
+    if(qtd <=0){ alert("Informe uma quantidade válida!"); return; }
+
+    const msg = `Olá! Gostaria de um orçamento para evento 🍿
+Sabor: ${sabor}
+Tamanho: ${tamanho}
+Quantidade: ${qtd}
+${valor}`;
+
+    window.open("https://wa.me/556182193378text=" + encodeURIComponent(msg));
+}
+</script>
+
+</body>
+</html>
