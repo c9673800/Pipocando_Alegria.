@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -164,6 +165,16 @@ sempre prezando pelo sabor, qualidade e alegria em cada pedido 🍿✨
 <label>⏰ Horário</label>
 <select id="horaPedido"></select>
 
+<label>🚚 Forma de recebimento</label>
+<select id="tipoEntrega">
+  <option value="">Selecione</option>
+  <option value="retirada">Retirada no local (Samambaia)</option>
+  <option value="uber">Entrega via Uber Flash</option>
+</select>
+
+<label id="enderecoLabel" style="display:none;">📍 Endereço / Bairro</label>
+<input type="text" id="enderecoCliente" placeholder="Ex: Samambaia Sul - QS 123" style="display:none;">
+
 <div class="cardapio" id="produtos"></div>
 
 <p class="valor" id="total">Total: R$ 0,00</p>
@@ -285,7 +296,7 @@ render();
 
 function render(){
 let total=0;
-carrinho.forEach(i=>total+=i.preco*i.qtd);
+carrinho.forEach(i=>total+=i.preco*i.q);
 let desc= total>=400?0.10: total>=200?0.05:0;
 total-=total*desc;
 document.getElementById("total").innerText="Total: R$ "+total.toFixed(2);
@@ -294,17 +305,47 @@ render();
 
 function limpar(){carrinho=[];salvar();}
 
-function finalizar(){
-if(!dataSel.value||!horaSel.value){
-alert("Selecione data e horário");
-return;
+const tipoEntrega=document.getElementById("tipoEntrega");
+const endereco=document.getElementById("enderecoCliente");
+const enderecoLabel=document.getElementById("enderecoLabel");
+
+tipoEntrega.addEventListener("change",()=>{
+if(tipoEntrega.value==="uber"){
+endereco.style.display="block";
+enderecoLabel.style.display="block";
+}else{
+endereco.style.display="none";
+enderecoLabel.style.display="none";
+endereco.value="";
 }
+});
+
+function finalizar(){
+if(!dataSel.value||!horaSel.value){alert("Selecione data e horário");return;}
+if(tipoEntrega.value===""){alert("Selecione a forma de recebimento");return;}
+if(tipoEntrega.value==="uber" && endereco.value.trim()===""){alert("Informe o endereço");return;}
+
 let msg="🍿 Pedido Pipocando Alegria 🍿\n\n";
 msg+=`📅 Data: ${dataSel.value}\n⏰ Horário: ${horaSel.value}\n\n`;
-msg+=`${document.getElementById("total").innerText}\n\n`;
-msg+="💸 Pagamento somente via PIX\n";
-msg+="📸 Envie o comprovante após o pagamento\n";
+
+carrinho.forEach(i=>{
+msg+=`• ${i.sabor} (${i.tam}) x${i.q}\n`;
+});
+
+msg+=`\n${document.getElementById("total").innerText}\n\n`;
+
+if(tipoEntrega.value==="retirada"){
+msg+="📦 Retirada no local (Samambaia)\n";
+}else{
+msg+="🚚 Entrega via Uber Flash\n";
+msg+=`📍 Endereço: ${endereco.value}\n`;
+msg+="💰 Taxa conforme valor do aplicativo\n";
+}
+
+msg+="\n💸 Pagamento somente via PIX\n";
+msg+="📸 Enviar comprovante para iniciar a produção\n";
 msg+="⚠️ Produção iniciada somente após confirmação do pagamento.";
+
 window.open("https://wa.me/556182193378?text="+encodeURIComponent(msg));
 }
 
@@ -323,16 +364,14 @@ const d=new Date(dataOrc.value);
 const hoje=new Date();
 const diff=(d-hoje)/(1000*60*60*24);
 
-if(diff<5){
-alert("Orçamento exige mínimo de 5 dias de antecedência");
-return;
-}
+if(diff<5){alert("Orçamento exige mínimo de 5 dias de antecedência");return;}
 
 let msg="🎉 Orçamento Pipocando Alegria 🎉\n\n";
 msg+=`📅 Data do evento: ${dataOrc.value}\n`;
 msg+=`Sabor: ${oSabor.value}\nTamanho: ${oTam.value}\nQuantidade: ${oQtd.value}\n`;
 msg+=`${oTotal.innerText}\n\n`;
 msg+="💸 Pagamento via PIX\nProdução após pagamento e envio do comprovante.";
+
 window.open("https://wa.me/556182193378?text="+encodeURIComponent(msg));
 }
 </script>
