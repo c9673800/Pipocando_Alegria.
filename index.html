@@ -374,6 +374,41 @@ msg+="💸 Pagamento via PIX\nProdução após pagamento e envio do comprovante.
 
 window.open("https://wa.me/556182193378?text="+encodeURIComponent(msg));
 }
+
+// VALIDAÇÃO PROFISSIONAL DE DOMINGO - PEDIDO COMUM
+const dataPedido = document.getElementById("dataPedido");
+const horaPedido = document.getElementById("horaPedido");
+
+function bloquearDomingoPedidoComum() {
+  if (!dataPedido.value) return;
+
+  const d = new Date(dataPedido.value + "T00:00");
+  if (d.getDay() === 0) {
+    alert("Domingo não atendemos pedidos comuns");
+    dataPedido.value = "";
+    horaPedido.innerHTML = "";
+  }
+}
+
+// dispara sempre que o usuário sai do campo
+dataPedido.addEventListener("blur", bloquearDomingoPedidoComum);
+// dispara se o navegador realmente mudar o valor
+dataPedido.addEventListener("change", bloquearDomingoPedidoComum);
+
+// SEGURANÇA FINAL — IMPEDE ENVIO SE FOR DOMINGO
+const finalizarOriginal = finalizar;
+
+finalizar = function () {
+  if (dataPedido.value) {
+    const d = new Date(dataPedido.value + "T00:00");
+    if (d.getDay() === 0) {
+      alert("Domingo não atendemos pedidos comuns");
+      return;
+    }
+  }
+  finalizarOriginal();
+};
+
 </script>
 
 </body>
