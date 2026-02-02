@@ -243,27 +243,33 @@ noite:["18:00","19:00","20:00"]
 const horaSel=document.getElementById("horaPedido");
 const dataSel=document.getElementById("dataPedido");
 
+/* 🔒 CORREÇÃO DEFINITIVA DO DOMINGO */
 dataSel.addEventListener("change",()=>{
-horaSel.innerHTML="";
-const d=new Date(dataSel.value);
-const dia=d.getDay();
+  horaSel.innerHTML="";
 
-if(dia===0){
-alert("Domingo não disponível para pedido comum");
-dataSel.value="";
-return;
-}
+  if(!dataSel.value) return;
 
-if(dia>=1 && dia<=5){
-horarios.tarde.concat(horarios.noite).forEach(h=>{
-horaSel.innerHTML+=`<option>${h}</option>`;
-});
-}
-if(dia===6){
-Object.values(horarios).flat().forEach(h=>{
-horaSel.innerHTML+=`<option>${h}</option>`;
-});
-}
+  const partes=dataSel.value.split("-");
+  const d=new Date(partes[0],partes[1]-1,partes[2]);
+  const dia=d.getDay();
+
+  if(dia===0){
+    alert("Domingo não atendemos pedidos comuns");
+    dataSel.value="";
+    return;
+  }
+
+  if(dia>=1 && dia<=5){
+    horarios.tarde.concat(horarios.noite).forEach(h=>{
+      horaSel.innerHTML+=`<option>${h}</option>`;
+    });
+  }
+
+  if(dia===6){
+    Object.values(horarios).flat().forEach(h=>{
+      horaSel.innerHTML+=`<option>${h}</option>`;
+    });
+  }
 });
 
 const produtosDiv=document.getElementById("produtos");
@@ -374,41 +380,6 @@ msg+="💸 Pagamento via PIX\nProdução após pagamento e envio do comprovante.
 
 window.open("https://wa.me/556182193378?text="+encodeURIComponent(msg));
 }
-
-// VALIDAÇÃO PROFISSIONAL DE DOMINGO - PEDIDO COMUM
-const dataPedido = document.getElementById("dataPedido");
-const horaPedido = document.getElementById("horaPedido");
-
-function bloquearDomingoPedidoComum() {
-  if (!dataPedido.value) return;
-
-  const d = new Date(dataPedido.value + "T00:00");
-  if (d.getDay() === 0) {
-    alert("Domingo não atendemos pedidos comuns");
-    dataPedido.value = "";
-    horaPedido.innerHTML = "";
-  }
-}
-
-// dispara sempre que o usuário sai do campo
-dataPedido.addEventListener("blur", bloquearDomingoPedidoComum);
-// dispara se o navegador realmente mudar o valor
-dataPedido.addEventListener("change", bloquearDomingoPedidoComum);
-
-// SEGURANÇA FINAL — IMPEDE ENVIO SE FOR DOMINGO
-const finalizarOriginal = finalizar;
-
-finalizar = function () {
-  if (dataPedido.value) {
-    const d = new Date(dataPedido.value + "T00:00");
-    if (d.getDay() === 0) {
-      alert("Domingo não atendemos pedidos comuns");
-      return;
-    }
-  }
-  finalizarOriginal();
-};
-
 </script>
 
 </body>
