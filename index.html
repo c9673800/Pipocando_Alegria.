@@ -1,5 +1,6 @@
 
-<!DOCTYPE html>
+
+<!DOCTYPE html>  
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -7,119 +8,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#FFF8E7;
-    color:#333;
-}
-header{
-    background:linear-gradient(135deg,#FFDD57,#F2A93B);
-    text-align:center;
-    padding:40px 20px;
-    color:#8B4513;
-}
-header h1{margin:0;font-size:36px;}
-header p{font-size:18px;}
-
-nav{
-    position:sticky;
-    top:0;
-    background:#FF8C42;
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    padding:12px;
-    z-index:100;
-}
-nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-section{
-    padding:50px 20px;
-    max-width:1100px;
-    margin:auto;
-}
+body{margin:0;font-family:Arial,sans-serif;background:#FFF8E7;color:#333;}
+header{background:linear-gradient(135deg,#FFDD57,#F2A93B);text-align:center;padding:45px 20px;color:#8B4513;}
+nav{position:sticky;top:0;background:#FF8C42;display:flex;justify-content:center;gap:25px;padding:14px;flex-wrap:wrap;}
+nav a{color:white;text-decoration:none;font-weight:bold;}
+section{padding:55px 20px;max-width:1100px;margin:auto;}
 h2{text-align:center;color:#8B4513;}
-
-.sobre{
-    text-align:center;
-    font-size:17px;
-    max-width:850px;
-    margin:auto;
-    line-height:1.6;
-}
-
-.cardapio{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:20px;
-}
-.card{
-    background:white;
-    border-radius:14px;
-    padding:20px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    text-align:center;
-}
-.card h3{color:#FF8C42;}
-
-select,input{
-    width:100%;
-    padding:10px;
-    margin-bottom:10px;
-    border-radius:8px;
-    border:1px solid #ccc;
-}
-
-button{
-    width:100%;
-    padding:12px;
-    border:none;
-    border-radius:10px;
-    font-size:15px;
-    cursor:pointer;
-}
+.sobre{text-align:center;font-size:18px;max-width:900px;margin:auto;line-height:1.8;}
+.cardapio{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.card{background:white;border-radius:14px;padding:20px;box-shadow:0 5px 15px rgba(0,0,0,.1);text-align:center;}
+select,input{width:100%;padding:11px;margin-bottom:10px;border-radius:8px;border:1px solid #ccc;}
+button{width:100%;padding:13px;border:none;border-radius:10px;font-size:15px;cursor:pointer;}
 .add{background:#25D366;color:white;}
-.clear{background:#ccc;margin-top:10px;}
-
-.valor{
-    font-size:18px;
-    font-weight:bold;
-    text-align:center;
-}
-
-.aviso{
-    background:#FFF1C1;
-    padding:15px;
-    border-radius:10px;
-    margin-bottom:20px;
-    font-size:15px;
-    text-align:center;
-}
-
-.instagram{
-    text-align:center;
-}
-.instagram a{
-    display:inline-block;
-    background:#E1306C;
-    color:white;
-    padding:15px 25px;
-    border-radius:12px;
-    text-decoration:none;
-    font-size:18px;
-}
-
-footer{
-    background:#8B4513;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
+.clear{background:#ccc;}
+.valor{text-align:center;font-size:20px;font-weight:bold;}
+.desconto{text-align:center;color:#25D366;font-weight:bold;}
+.aviso{background:#FFF1C1;padding:16px;border-radius:10px;margin-bottom:22px;text-align:center;}
+footer{background:#8B4513;color:white;text-align:center;padding:28px;}
+footer a{color:#FFD966;text-decoration:none;font-weight:bold;}
 </style>
 </head>
 
@@ -127,26 +33,25 @@ footer{
 
 <header>
 <h1>Pipocando Alegria 🍿</h1>
-<p>Pipoca gourmet artesanal que espalha alegria em cada mordida ✨</p>
-<p><strong>Produção somente após pagamento via PIX e envio do comprovante</strong></p>
+<p>Pipoca gourmet artesanal produzida sob encomenda</p>
+<p><strong>Produção somente após pagamento via PIX</strong></p>
 </header>
 
 <nav>
 <a href="#sobre">Sobre</a>
-<a href="#cardapio">Pedido</a>
-<a href="#orcamento">Orçamento</a>
-<a href="#instagram">Instagram</a>
+<a href="#cardapio">Pedidos</a>
+<a href="#orcamento">Orçamentos</a>
+<a href="https://www.instagram.com/pipocando_.alegria._/" target="_blank">Instagram</a>
 </nav>
 
 <section id="sobre">
 <h2>🍿 Sobre a Pipocando Alegria</h2>
 <p class="sobre">
-Na <strong>Pipocando Alegria</strong>, cada pipoca é preparada com ingredientes selecionados,
-muito carinho e atenção aos detalhes 💛  
-Produzimos pipoca gourmet artesanal para festas, eventos e momentos especiais,
-sempre prezando pelo sabor, qualidade e alegria em cada pedido 🍿✨  
-<br><br>
-<strong>Produção iniciada somente após pagamento via PIX e envio do comprovante.</strong>
+A <strong>Pipocando Alegria</strong> é especializada na produção de
+<strong>pipoca gourmet artesanal</strong>, feita sob encomenda com ingredientes
+selecionados e preparo cuidadoso.<br><br>
+Atendemos <strong>aniversários, confraternizações, eventos corporativos,
+festas escolares e celebrações especiais</strong>.
 </p>
 </section>
 
@@ -154,123 +59,83 @@ sempre prezando pelo sabor, qualidade e alegria em cada pedido 🍿✨
 <h2>🍿 Pedido Comum</h2>
 
 <div class="aviso">
-❌ Domingo não atendemos pedidos comuns<br>
-❌ Segunda a sexta: manhã indisponível<br>
-✅ Produção somente após pagamento + comprovante
+🚫 <strong>Não atendemos pedidos comuns aos domingos</strong><br>
+🕒 Seg–Sex: 15h às 21h • Sáb: 9h–12h e 15h–21h<br>
+💰 Desconto automático: R$200+ (5%) • R$400+ (10%)
 </div>
-
-<label>📅 Data de entrega</label>
-<input type="date" id="dataPedido">
-
-<label>⏰ Horário</label>
-<select id="horaPedido"></select>
-
-<label>🚚 Forma de recebimento</label>
-<select id="tipoEntrega">
-  <option value="">Selecione</option>
-  <option value="retirada">Retirada no local (Samambaia)</option>
-  <option value="uber">Entrega via Uber Flash</option>
-</select>
-
-<label id="enderecoLabel" style="display:none;">📍 Endereço / Bairro</label>
-<input type="text" id="enderecoCliente" placeholder="Ex: Samambaia Sul - QS 123" style="display:none;">
 
 <div class="cardapio" id="produtos"></div>
 
-<p class="valor" id="total">Total: R$ 0,00</p>
+<input type="date" id="dataEntrega" onchange="atualizarHorarios()">
 
-<button class="add" onclick="finalizar()">Finalizar pedido no WhatsApp</button>
-<button class="clear" onclick="limpar()">Limpar carrinho</button>
+<select id="horarioEntrega">
+<option value="">Selecione o horário</option>
+</select>
+
+<p class="valor" id="total">Total: R$ 0,00</p>
+<p class="desconto" id="infoDesconto"></p>
+
+<button class="add" onclick="finalizarPedido()">Finalizar no WhatsApp</button>
+<button class="clear" onclick="limpar()">Limpar</button>
 </section>
 
 <section id="orcamento">
 <h2>🎉 Orçamento para Eventos</h2>
 
 <div class="aviso">
-Pedidos grandes devem ser feitos com <strong>5 a 7 dias de antecedência</strong><br>
-✅ Domingo permitido apenas para orçamento
+📅 <strong>Pedidos para eventos devem ser feitos com no mínimo 5 dias de antecedência</strong><br>
+✅ Eventos aos domingos são permitidos
 </div>
 
-<label>📅 Data do evento</label>
-<input type="date" id="dataOrc">
+<input type="date" id="dataEvento" onchange="validarEvento()">
 
-<select id="oSabor">
+<select id="orcSabor" onchange="calcularOrcamento()">
 <option>Caramelo</option>
 <option>Leite Ninho</option>
 <option>Chocolate</option>
 <option>Chocolate com Leite Ninho</option>
 </select>
 
-<select id="oTam">
+<select id="orcTamanho" onchange="calcularOrcamento()">
 <option>Pequeno</option>
 <option>Médio</option>
 </select>
 
-<input type="number" id="oQtd" min="1" placeholder="Quantidade" oninput="calcOrc()">
+<input type="number" id="orcQtd" min="1" placeholder="Quantidade" oninput="calcularOrcamento()">
 
-<p class="valor" id="oTotal">Total: R$ 0,00</p>
+<p class="valor" id="orcTotal"></p>
+<p class="desconto" id="orcDesc"></p>
 
-<button class="add" onclick="orcWhats()">Solicitar orçamento no WhatsApp</button>
-</section>
-
-<section id="instagram" class="instagram">
-<h2>📸 Instagram</h2>
-<a href="https://instagram.com/pipocando_.alegria._" target="_blank">
-@pipocando_.alegria._
-</a>
+<button class="add" onclick="enviarOrcamento()">Enviar Orçamento</button>
 </section>
 
 <footer>
-<p>© 2026 Pipocando Alegria • Feito com carinho 🍿</p>
+<p>© 2026 Pipocando Alegria 🍿</p>
+<p>Siga no Instagram:
+<a href="https://www.instagram.com/pipocando_.alegria._/" target="_blank">
+@pipocando_.alegria._
+</a>
+</p>
 </footer>
 
 <script>
 const precos={
-"Caramelo":{Pequeno:5,Medio:7},
+Caramelo:{Pequeno:5,Medio:7},
 "Leite Ninho":{Pequeno:7,Medio:9},
-"Chocolate":{Pequeno:7,Medio:9},
+Chocolate:{Pequeno:7,Medio:9},
 "Chocolate com Leite Ninho":{Pequeno:8,Medio:12}
 };
 
-let carrinho=JSON.parse(localStorage.getItem("carrinho"))||[];
+let carrinho=[];
+const totalEl=document.getElementById("total");
+const infoDesconto=document.getElementById("infoDesconto");
 
-const horarios={
-manha:["09:00","10:00","11:00"],
-tarde:["14:00","15:00","16:00","17:00"],
-noite:["18:00","19:00","20:00"]
-};
-
-const horaSel=document.getElementById("horaPedido");
-const dataSel=document.getElementById("dataPedido");
-
-/* 🔒 CORREÇÃO DEFINITIVA DO DOMINGO */
-dataSel.addEventListener("change",()=>{
-  horaSel.innerHTML="";
-
-  if(!dataSel.value) return;
-
-  const partes=dataSel.value.split("-");
-  const d=new Date(partes[0],partes[1]-1,partes[2]);
-  const dia=d.getDay();
-
-  if(dia===0){
-    alert("Domingo não atendemos pedidos comuns");
-    dataSel.value="";
-    return;
-  }
-
-  if(dia>=1 && dia<=5){
-    horarios.tarde.concat(horarios.noite).forEach(h=>{
-      horaSel.innerHTML+=`<option>${h}</option>`;
-    });
-  }
-
-  if(dia===6){
-    Object.values(horarios).flat().forEach(h=>{
-      horaSel.innerHTML+=`<option>${h}</option>`;
-    });
-  }
-});
+function calcularDesconto(valor){
+let d=0;
+if(valor>=400)d=0.10;
+else if(valor>=200)d=0.05;
+return {desc:d,total:valor*(1-d)};
+}
 
 const produtosDiv=document.getElementById("produtos");
 Object.keys(precos).forEach(s=>{
@@ -281,104 +146,101 @@ produtosDiv.innerHTML+=`
 <option>Pequeno</option>
 <option>Médio</option>
 </select>
-<input type="number" id="q-${s}" min="1" placeholder="Quantidade">
-<button class="add" onclick="add('${s}')">Adicionar ao carrinho</button>
+<input type="number" id="q-${s}" min="1" placeholder="Qtd">
+<button class="add" onclick="add('${s}')">Adicionar</button>
 </div>`;
 });
 
 function add(s){
-let t=document.getElementById("t-"+s).value;
-let q=document.getElementById("q-"+s).value;
-if(!q||q<=0){alert("Informe a quantidade");return;}
-let tam=t=="Médio"?"Medio":"Pequeno";
-carrinho.push({sabor:s,tam:t,q:+q,preco:precos[s][tam]});
-salvar();
-}
+const t=document.getElementById(`t-${s}`).value;
+const qEl=document.getElementById(`q-${s}`);
+const q=+qEl.value;
+if(!q)return alert("Informe a quantidade");
 
-function salvar(){
-localStorage.setItem("carrinho",JSON.stringify(carrinho));
+const v=precos[s][t==="Médio"?"Medio":"Pequeno"];
+carrinho.push({s,t,q,v});
+qEl.value="";
 render();
 }
 
 function render(){
-let total=0;
-carrinho.forEach(i=>total+=i.preco*i.q);
-let desc= total>=400?0.10: total>=200?0.05:0;
-total-=total*desc;
-document.getElementById("total").innerText="Total: R$ "+total.toFixed(2);
+let total=carrinho.reduce((a,i)=>a+(i.q*i.v),0);
+const c=calcularDesconto(total);
+totalEl.innerText=`Total: R$ ${c.total.toFixed(2).replace(".",",")}`;
+infoDesconto.innerText=c.desc?`Desconto de ${c.desc*100}% aplicado`:"";
 }
+
+function limpar(){
+carrinho=[];
 render();
-
-function limpar(){carrinho=[];salvar();}
-
-const tipoEntrega=document.getElementById("tipoEntrega");
-const endereco=document.getElementById("enderecoCliente");
-const enderecoLabel=document.getElementById("enderecoLabel");
-
-tipoEntrega.addEventListener("change",()=>{
-if(tipoEntrega.value==="uber"){
-endereco.style.display="block";
-enderecoLabel.style.display="block";
-}else{
-endereco.style.display="none";
-enderecoLabel.style.display="none";
-endereco.value="";
 }
-});
 
-function finalizar(){
-if(!dataSel.value||!horaSel.value){alert("Selecione data e horário");return;}
-if(tipoEntrega.value===""){alert("Selecione a forma de recebimento");return;}
-if(tipoEntrega.value==="uber" && endereco.value.trim()===""){alert("Informe o endereço");return;}
+/* ✅ ÚNICA CORREÇÃO PEDIDA */
+function finalizarPedido(){
+if(!carrinho.length) return alert("Adicione produtos ao pedido");
+if(!dataEntrega.value || !horarioEntrega.value)
+return alert("Selecione data e horário");
 
-let msg="🍿 Pedido Pipocando Alegria 🍿\n\n";
-msg+=`📅 Data: ${dataSel.value}\n⏰ Horário: ${horaSel.value}\n\n`;
-
+let itens="";
 carrinho.forEach(i=>{
-msg+=`• ${i.sabor} (${i.tam}) x${i.q}\n`;
+itens+=`🍿 ${i.s} (${i.t}) x${i.q}\n`;
 });
 
-msg+=`\n${document.getElementById("total").innerText}\n\n`;
+const msg=
+`🛒 PEDIDO COMUM\n\n${itens}\n📅 Data: ${dataEntrega.value}\n🕒 Horário: ${horarioEntrega.value}\n💰 ${totalEl.innerText}\n${infoDesconto.innerText}`;
 
-if(tipoEntrega.value==="retirada"){
-msg+="📦 Retirada no local (Samambaia)\n";
-}else{
-msg+="🚚 Entrega via Uber Flash\n";
-msg+=`📍 Endereço: ${endereco.value}\n`;
-msg+="💰 Taxa conforme valor do aplicativo\n";
+window.open(
+"https://wa.me/556182193378?text="+encodeURIComponent(msg)
+);
 }
 
-msg+="\n💸 Pagamento somente via PIX\n";
-msg+="📸 Enviar comprovante para iniciar a produção\n";
-msg+="⚠️ Produção iniciada somente após confirmação do pagamento.";
+function atualizarHorarios(){
+const data=dataEntrega.value;
+if(!data)return;
 
-window.open("https://wa.me/556182193378?text="+encodeURIComponent(msg));
+const dia=new Date(data+"T00:00").getDay();
+horarioEntrega.innerHTML='<option value="">Selecione o horário</option>';
+
+if(dia===0){
+alert("Pedidos comuns não são aceitos aos domingos");
+dataEntrega.value="";
+return;
 }
 
-function calcOrc(){
-let s=oSabor.value;
-let t=oTam.value=="Médio"?"Medio":"Pequeno";
-let q=oQtd.value;
-let total=precos[s][t]*q;
-let desc= total>=400?0.10: total>=200?0.05:0;
-total-=total*desc;
-oTotal.innerText="Total: R$ "+(q?total.toFixed(2):"0,00");
+if(dia>=1 && dia<=5){
+for(let i=15;i<=21;i++)horarioEntrega.innerHTML+=`<option>${i}:00</option>`;
 }
 
-function orcWhats(){
-const d=new Date(dataOrc.value);
-const hoje=new Date();
-const diff=(d-hoje)/(1000*60*60*24);
+if(dia===6){
+for(let i=9;i<=12;i++)horarioEntrega.innerHTML+=`<option>${i}:00</option>`;
+for(let i=15;i<=21;i++)horarioEntrega.innerHTML+=`<option>${i}:00</option>`;
+}
+}
 
-if(diff<5){alert("Orçamento exige mínimo de 5 dias de antecedência");return;}
+function calcularOrcamento(){
+if(!orcQtd.value)return;
+const v=precos[orcSabor.value][orcTamanho.value==="Médio"?"Medio":"Pequeno"]*orcQtd.value;
+const c=calcularDesconto(v);
+orcTotal.innerText=`Total: R$ ${c.total.toFixed(2).replace(".",",")}`;
+orcDesc.innerText=c.desc?`Desconto de ${c.desc*100}% aplicado`:"";
+}
 
-let msg="🎉 Orçamento Pipocando Alegria 🎉\n\n";
-msg+=`📅 Data do evento: ${dataOrc.value}\n`;
-msg+=`Sabor: ${oSabor.value}\nTamanho: ${oTam.value}\nQuantidade: ${oQtd.value}\n`;
-msg+=`${oTotal.innerText}\n\n`;
-msg+="💸 Pagamento via PIX\nProdução após pagamento e envio do comprovante.";
+function validarEvento(){
+const d=new Date(dataEvento.value+"T00:00");
+const hoje=new Date();hoje.setHours(0,0,0,0);
+const dias=(d-hoje)/(1000*60*60*24);
 
-window.open("https://wa.me/556182193378?text="+encodeURIComponent(msg));
+if(dias>=0 && dias<5){
+alert("Eventos precisam de no mínimo 5 dias de antecedência");
+dataEvento.value="";
+}
+}
+
+function enviarOrcamento(){
+if(!orcTotal.innerText)return alert("Preencha todos os campos");
+window.open("https://wa.me/556182193378?text="+encodeURIComponent(
+`🎉 ORÇAMENTO\n📅 ${dataEvento.value}\n🍿 ${orcSabor.value}\n🔢 ${orcQtd.value}\n💰 ${orcTotal.innerText}`
+));
 }
 </script>
 
