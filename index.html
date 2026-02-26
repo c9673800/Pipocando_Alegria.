@@ -296,22 +296,22 @@ function finalizarPedido(){
   if(!data || !hora){ alert("Selecione data e horário de entrega."); return; }
 
   const dataFormat = new Date(data).toLocaleDateString("pt-BR");
-  let mensagem = "🛒 PEDIDO COMUM - PIPOCANDO ALEGRIA\\n\\n";
-  mensagem += "📦 Itens:\\n";
+  let mensagem = "🛒 *PEDIDO COMUM - PIPOCANDO ALEGRIA*\n\n";
+  mensagem += "📦 *Itens:*\n";
   let totalBruto = 0;
   carrinho.forEach((it, idx) => {
     const sub = it.quantidade * it.precoUnit;
     totalBruto += sub;
-    mensagem += `${idx+1}. ${it.sabor} (${it.tamanho}) - ${it.quantidade} x R$ ${it.precoUnit.toFixed(2).replace(".",",")} = R$ ${sub.toFixed(2).replace(".",",")}\\n`;
+    mensagem += `${idx+1}. ${it.sabor} (${it.tamanho}) – ${it.quantidade} x R$ ${it.precoUnit.toFixed(2).replace(".",",")} = R$ ${sub.toFixed(2).replace(".",",")}\n`;
   });
   const d = calcularDesconto(totalBruto);
-  mensagem += `\\nSubtotal: R$ ${totalBruto.toFixed(2).replace(".",",")}\\n`;
-  if(d.percentual>0) mensagem += `Desconto: ${Math.round(d.percentual*100)}% (-R$ ${(totalBruto-d.valorFinal).toFixed(2).replace(".",",")})\\n`;
-  mensagem += `Total: R$ ${d.valorFinal.toFixed(2).replace(".",",")}\\n\\n`;
-  mensagem += `📅 Entrega: ${dataFormat} — ${hora}\\n\\n`;
-  mensagem += `⚠️ Observações: Favor confirmar pagamento via PIX para iniciar produção.\\n\\n`;
+  mensagem += `\n*Subtotal:* R$ ${totalBruto.toFixed(2).replace(".",",")}\n`;
+  if(d.percentual>0) mensagem += `*Desconto:* ${Math.round(d.percentual*100)}% (-R$ ${(totalBruto-d.valorFinal).toFixed(2).replace(".",",")})\n`;
+  mensagem += `*Total:* R$ ${d.valorFinal.toFixed(2).replace(".",",")}\n\n`;
+  mensagem += `📅 *Entrega:* ${dataFormat} às ${hora}\n\n`;
+  mensagem += `⚠️ *Observações:* Favor confirmar pagamento via PIX para iniciar produção.\n\n`;
   mensagem += `— Enviado automaticamente pelo site`;
-  const url = `https://wa.me/${NUM_WHATS}?text=${encodeURIComponent(mensagem)}`;
+  const url = `https://wa.me/${556182193378}?text=${encodeURIComponent(mensagem)}`;
   window.open(url,'_blank');
 }
 
@@ -346,14 +346,14 @@ function enviarOrcamento(){
   if(!data || !qtd || !totalText){ alert("Preencha data, sabor, tamanho e quantidade."); return; }
 
   const dataFormat = new Date(data).toLocaleDateString("pt-BR");
-  let msg = "🎉 ORÇAMENTO - PIPOCANDO ALEGRIA\\n\\n";
-  msg += `📅 Data do Evento: ${dataFormat}\\n`;
-  msg += `🍿 Sabor: ${sabor}\\n`;
-  msg += `📏 Tamanho: ${tamanho}\\n`;
-  msg += `🔢 Quantidade: ${qtd}\\n`;
-  msg += `${totalText}\\n\\n`;
-  msg += "⚠️ Observações: Enviar confirmação e pagamento via PIX para garantir a reserva.";
-  const url = `https://wa.me/${NUM_WHATS}?text=${encodeURIComponent(msg)}`;
+  let msg = "🎉 *ORÇAMENTO - PIPOCANDO ALEGRIA*\n\n";
+  msg += `📅 *Data do Evento:* ${dataFormat}\n`;
+  msg += `🍿 *Sabor:* ${sabor}\n`;
+  msg += `📏 *Tamanho:* ${tamanho}\n`;
+  msg += `🔢 *Quantidade:* ${qtd}\n`;
+  msg += `${totalText}\n\n`;
+  msg += "⚠️ *Observações:* Enviar confirmação e pagamento via PIX para garantir a reserva.";
+  const url = `https://wa.me/${556182193378}?text=${encodeURIComponent(msg)}`;
   window.open(url,'_blank');
 }
 </script>
