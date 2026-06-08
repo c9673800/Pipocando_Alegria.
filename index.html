@@ -17,9 +17,9 @@
     .cardapio{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:24px 0}
     .card{background:#fff;border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,.08);text-align:left}
     .card h3{color:#8B4513;margin-bottom:12px}
-    .form-group{margin-bottom:12px}
+    .form-group{margin-bottom:14px}
     label{display:block;margin-bottom:6px;font-weight:700;color:#8B4513}
-    select,input[type="date"],input[type="number"],input[type="text"]{width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;background:#fafafa}
+    select,input[type="date"],input[type="number"],input[type="text"]{width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;background:#fafafa;font-size:1rem}
     .container-preco{background:#fff;padding:18px;border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,.06);margin-top:18px}
     .lista-carrinho{max-height:260px;overflow:auto;padding:8px;background:#fafafa;border-radius:8px}
     .item-carrinho{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:8px;background:#f7f7f7;margin-bottom:8px;border-left:4px solid #FF8C42}
@@ -67,7 +67,46 @@
     <strong>Descontos automáticos:</strong> a partir de R$200 → 5% • a partir de R$400 → 10%
   </div>
 
-  <div class="cardapio" id="produtosContainer"></div>
+  <div class="cardapio">
+    <div class="card">
+      <h3>Escolha seu pedido</h3>
+      <div class="form-group">
+        <label for="pedidoSabor">Sabor</label>
+        <select id="pedidoSabor">
+          <option value="">Selecione o sabor</option>
+          <option value="Caramelo">Caramelo</option>
+          <option value="Leite Ninho">Leite Ninho</option>
+          <option value="Chocolate">Chocolate</option>
+          <option value="Chocolate com Leite Ninho">Chocolate com Leite Ninho</option>
+          <option value="Pipoca Salgada">Pipoca Salgada</option>
+          <option value="Pipoca Colorida">Pipoca Colorida (Azul e Rosa)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="pedidoTamanho">Tamanho</label>
+        <select id="pedidoTamanho">
+          <option value="">Selecione o tamanho</option>
+          <option value="Pequeno">Pequeno</option>
+          <option value="Médio">Médio</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="pedidoQtd">Quantidade</label>
+        <input type="number" id="pedidoQtd" min="1" placeholder="Quantidade" />
+      </div>
+      <div class="form-group">
+        <label for="formaPagamentoPedido">Forma de Pagamento</label>
+        <select id="formaPagamentoPedido">
+          <option value="">Selecione a forma de pagamento</option>
+          <option>Dinheiro</option>
+          <option>Pix</option>
+          <option>Cartão de Débito</option>
+          <option>Cartão de Crédito</option>
+        </select>
+      </div>
+      <button class="btn-adicionar" onclick="adicionarAoCarrinho()">➕ Adicionar ao carrinho</button>
+    </div>
+  </div>
 
   <div class="container-preco">
     <h3 style="color:#8B4513">🛒 Seu Pedido</h3>
@@ -109,26 +148,68 @@
     </div>
 
     <div class="form-group">
-      <label for="orcSabor">Sabor</label>
-      <select id="orcSabor" onchange="calcularOrcamento()">
-        <option>Caramelo</option>
-        <option>Leite Ninho</option>
-        <option>Chocolate</option>
-        <option>Chocolate com Leite Ninho</option>
+      <label for="orcSabor1">Sabor 1</label>
+      <select id="orcSabor1" onchange="calcularOrcamento()">
+        <option value="">Selecione o sabor</option>
+        <option value="Caramelo">Caramelo</option>
+        <option value="Leite Ninho">Leite Ninho</option>
+        <option value="Chocolate">Chocolate</option>
+        <option value="Chocolate com Leite Ninho">Chocolate com Leite Ninho</option>
+        <option value="Pipoca Salgada">Pipoca Salgada</option>
+        <option value="Pipoca Colorida">Pipoca Colorida (Azul e Rosa)</option>
       </select>
     </div>
 
     <div class="form-group">
-      <label for="orcTamanho">Tamanho</label>
-      <select id="orcTamanho" onchange="calcularOrcamento()">
-        <option>Pequeno</option>
-        <option>Médio</option>
+      <label for="orcTamanho1">Tamanho 1</label>
+      <select id="orcTamanho1" onchange="calcularOrcamento()">
+        <option value="">Selecione o tamanho</option>
+        <option value="Pequeno">Pequeno</option>
+        <option value="Médio">Médio</option>
       </select>
     </div>
 
     <div class="form-group">
-      <label for="orcQtd">Quantidade</label>
-      <input type="number" id="orcQtd" min="1" placeholder="Quantidade" oninput="calcularOrcamento()" />
+      <label for="orcQtd1">Quantidade 1</label>
+      <input type="number" id="orcQtd1" min="1" placeholder="Quantidade" oninput="calcularOrcamento()" />
+    </div>
+
+    <div class="form-group">
+      <label for="orcSabor2">Sabor 2</label>
+      <select id="orcSabor2" onchange="calcularOrcamento()">
+        <option value="">Adicionar outro sabor</option>
+        <option value="Caramelo">Caramelo</option>
+        <option value="Leite Ninho">Leite Ninho</option>
+        <option value="Chocolate">Chocolate</option>
+        <option value="Chocolate com Leite Ninho">Chocolate com Leite Ninho</option>
+        <option value="Pipoca Salgada">Pipoca Salgada</option>
+        <option value="Pipoca Colorida">Pipoca Colorida (Azul e Rosa)</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="orcTamanho2">Tamanho 2</label>
+      <select id="orcTamanho2" onchange="calcularOrcamento()">
+        <option value="">Selecione o tamanho</option>
+        <option value="Pequeno">Pequeno</option>
+        <option value="Médio">Médio</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="orcQtd2">Quantidade 2</label>
+      <input type="number" id="orcQtd2" min="1" placeholder="Quantidade" oninput="calcularOrcamento()" />
+    </div>
+
+    <div class="form-group">
+      <label for="formaPagamentoOrcamento">Forma de Pagamento</label>
+      <select id="formaPagamentoOrcamento">
+        <option value="">Selecione a forma de pagamento</option>
+        <option>Dinheiro</option>
+        <option>Pix</option>
+        <option>Cartão de Débito</option>
+        <option>Cartão de Crédito</option>
+      </select>
     </div>
 
     <div class="valor" id="totalOrcamento"></div>
@@ -149,13 +230,14 @@ const PRECOS = {
   "Caramelo": { "Pequeno": 5, "Médio": 7 },
   "Leite Ninho": { "Pequeno": 7, "Médio": 9 },
   "Chocolate": { "Pequeno": 7, "Médio": 9 },
-  "Chocolate com Leite Ninho": { "Pequeno": 8, "Médio": 12 }
+  "Chocolate com Leite Ninho": { "Pequeno": 8, "Médio": 12 },
+  "Pipoca Salgada": { "Pequeno": 4, "Médio": 6 },
+  "Pipoca Colorida": { "Pequeno": 5, "Médio": 7 }
 };
 const NUM_WHATS = "556182193378";
 let carrinho = [];
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderizarProdutos();
   definirDataMinima();
 });
 
@@ -165,42 +247,20 @@ function definirDataMinima() {
   document.getElementById("dataEvento").min = hoje;
 }
 
-function renderizarProdutos() {
-  const container = document.getElementById("produtosContainer");
-  container.innerHTML = "";
-  Object.keys(PRECOS).forEach(sabor => {
-    const preco = PRECOS[sabor];
-    const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = `
-      <h3>🍿 ${sabor}</h3>
-      <div class="form-group">
-        <label for="tam-${sabor}">Tamanho</label>
-        <select id="tam-${sabor}">
-          <option>Pequeno (R$ ${preco["Pequeno"].toFixed(2).replace(".",",")})</option>
-          <option>Médio (R$ ${preco["Médio"].toFixed(2).replace(".",",")})</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="qty-${sabor}">Quantidade</label>
-        <input type="number" id="qty-${sabor}" min="1" placeholder="Quantidade" />
-      </div>
-      <button class="btn-adicionar" onclick="adicionarAoCarrinho('${sabor}')">➕ Adicionar</button>
-    `;
-    container.appendChild(card);
-  });
-}
+function adicionarAoCarrinho() {
+  const sabor = document.getElementById("pedidoSabor").value;
+  const tamanho = document.getElementById("pedidoTamanho").value;
+  const qty = parseInt(document.getElementById("pedidoQtd").value, 10);
 
-function adicionarAoCarrinho(sabor) {
-  const tamanhoRaw = document.getElementById(`tam-${sabor}`).value;
-  const tamanho = tamanhoRaw.split(" ")[0];
-  const qty = parseInt(document.getElementById(`qty-${sabor}`).value, 10);
-
+  if (!sabor) { alert("Selecione um sabor."); return; }
+  if (!tamanho) { alert("Selecione um tamanho."); return; }
   if (!qty || qty <= 0) { alert("Informe uma quantidade válida."); return; }
 
   const precoUnit = PRECOS[sabor][tamanho];
   carrinho.push({ sabor, tamanho, quantidade: qty, precoUnit });
-  document.getElementById(`qty-${sabor}`).value = "";
+  document.getElementById("pedidoSabor").value = "";
+  document.getElementById("pedidoTamanho").value = "";
+  document.getElementById("pedidoQtd").value = "";
   atualizarCarrinho();
 }
 
@@ -252,7 +312,13 @@ function removerDoCarrinho(i) { carrinho.splice(i,1); atualizarCarrinho(); }
 
 function limparCarrinho(){
   if(carrinho.length===0){ alert("O pedido já está vazio."); return; }
-  if(confirm("Deseja limpar todo o pedido?")){ carrinho=[]; atualizarCarrinho(); document.getElementById("dataEntrega").value=""; document.getElementById("horarioEntrega").innerHTML='<option>Escolha a data primeiro</option>'; document.getElementById("infoSelecionada").classList.remove("ativa"); }
+  if(confirm("Deseja limpar todo o pedido?")){ 
+    carrinho=[]; 
+    atualizarCarrinho(); 
+    document.getElementById("dataEntrega").value=""; 
+    document.getElementById("horarioEntrega").innerHTML='<option value="">Escolha a data primeiro</option>'; 
+    document.getElementById("infoSelecionada").classList.remove("ativa"); 
+  }
 }
 
 function atualizarHorarios(){
@@ -268,6 +334,7 @@ function atualizarHorarios(){
     alert("Pedidos comuns não são atendidos aos domingos. Escolha outra data.");
     document.getElementById("dataEntrega").value = "";
     document.getElementById("infoSelecionada").classList.remove("ativa");
+    sel.innerHTML = '<option value="">Escolha a data primeiro</option>';
     return;
   }
   if(dia >=1 && dia <=5){
@@ -278,6 +345,7 @@ function atualizarHorarios(){
     for(let h=16; h<=21; h++){ const o=document.createElement("option"); o.value=`${h}:00`; o.textContent=`${h}:00 (Tarde)`; sel.appendChild(o); }
   }
   sel.onchange = mostrarDataHoraSelecionados;
+  mostrarDataHoraSelecionados();
 }
 
 function mostrarDataHoraSelecionados(){
@@ -293,7 +361,9 @@ function finalizarPedido(){
   if(carrinho.length === 0){ alert("Adicione produtos ao pedido antes de finalizar."); return; }
   const data = document.getElementById("dataEntrega").value;
   const hora = document.getElementById("horarioEntrega").value;
+  const formaPagamento = document.getElementById("formaPagamentoPedido").value;
   if(!data || !hora){ alert("Selecione data e horário de entrega."); return; }
+  if(!formaPagamento){ alert("Selecione a forma de pagamento."); return; }
 
   const dataFormat = new Date(data).toLocaleDateString("pt-BR");
   let mensagem = "🛒 *PEDIDO COMUM - PIPOCANDO ALEGRIA*\n\n";
@@ -308,10 +378,11 @@ function finalizarPedido(){
   mensagem += `\n*Subtotal:* R$ ${totalBruto.toFixed(2).replace(".",",")}\n`;
   if(d.percentual>0) mensagem += `*Desconto:* ${Math.round(d.percentual*100)}% (-R$ ${(totalBruto-d.valorFinal).toFixed(2).replace(".",",")})\n`;
   mensagem += `*Total:* R$ ${d.valorFinal.toFixed(2).replace(".",",")}\n\n`;
-  mensagem += `📅 *Entrega:* ${dataFormat} às ${hora}\n\n`;
+  mensagem += `📅 *Entrega:* ${dataFormat} às ${hora}\n`;
+  mensagem += `💳 *Forma de Pagamento:* ${formaPagamento}\n\n`;
   mensagem += `⚠️ *Observações:* Favor confirmar pagamento via PIX para iniciar produção.\n\n`;
   mensagem += `— Enviado automaticamente pelo site`;
-  const url = `https://wa.me/${556182193378}?text=${encodeURIComponent(mensagem)}`;
+  const url = `https://wa.me/${NUM_WHATS}?text=${encodeURIComponent(mensagem)}`;
   window.open(url,'_blank');
 }
 
@@ -321,17 +392,44 @@ function validarEvento(){
   const d = new Date(data+"T00:00");
   const hoje = new Date(); hoje.setHours(0,0,0,0);
   const dias = Math.floor((d - hoje)/(1000*60*60*24));
-  if(dias < 5){ alert("Pedidos para eventos precisam de no mínimo 5 dias de antecedência."); document.getElementById("dataEvento").value=""; document.getElementById("totalOrcamento").textContent=""; document.getElementById("descontoOrcamento").textContent=""; return; }
+  if(dias < 5){ 
+    alert("Pedidos para eventos precisam de no mínimo 5 dias de antecedência."); 
+    document.getElementById("dataEvento").value="";
+    document.getElementById("totalOrcamento").textContent="";
+    document.getElementById("descontoOrcamento").textContent="";
+    return; 
+  }
   calcularOrcamento();
 }
 
 function calcularOrcamento(){
-  const qtd = parseInt(document.getElementById("orcQtd").value,10);
-  if(!qtd || qtd<=0){ document.getElementById("totalOrcamento").textContent=""; document.getElementById("descontoOrcamento").textContent=""; return; }
-  const sabor = document.getElementById("orcSabor").value;
-  const tamanho = document.getElementById("orcTamanho").value;
-  const precoUnit = PRECOS[sabor][tamanho];
-  const totalBruto = precoUnit * qtd;
+  const sabor1 = document.getElementById("orcSabor1").value;
+  const tamanho1 = document.getElementById("orcTamanho1").value;
+  const qtd1 = parseInt(document.getElementById("orcQtd1").value,10);
+
+  const sabor2 = document.getElementById("orcSabor2").value;
+  const tamanho2 = document.getElementById("orcTamanho2").value;
+  const qtd2 = parseInt(document.getElementById("orcQtd2").value,10);
+
+  let totalBruto = 0;
+  let itensValidos = 0;
+
+  if (sabor1 && tamanho1 && qtd1 && qtd1 > 0) {
+    totalBruto += PRECOS[sabor1][tamanho1] * qtd1;
+    itensValidos++;
+  }
+
+  if (sabor2 && tamanho2 && qtd2 && qtd2 > 0) {
+    totalBruto += PRECOS[sabor2][tamanho2] * qtd2;
+    itensValidos++;
+  }
+
+  if (itensValidos === 0) {
+    document.getElementById("totalOrcamento").textContent="";
+    document.getElementById("descontoOrcamento").textContent="";
+    return;
+  }
+
   const d = calcularDesconto(totalBruto);
   document.getElementById("totalOrcamento").textContent = `Total: R$ ${d.valorFinal.toFixed(2).replace(".",",")}`;
   document.getElementById("descontoOrcamento").textContent = d.percentual>0 ? `Desconto ${Math.round(d.percentual*100)}% aplicado — você economiza R$ ${(totalBruto-d.valorFinal).toFixed(2).replace(".",",")}` : "";
@@ -339,21 +437,35 @@ function calcularOrcamento(){
 
 function enviarOrcamento(){
   const data = document.getElementById("dataEvento").value;
-  const sabor = document.getElementById("orcSabor").value;
-  const tamanho = document.getElementById("orcTamanho").value;
-  const qtd = document.getElementById("orcQtd").value;
+  const sabor1 = document.getElementById("orcSabor1").value;
+  const tamanho1 = document.getElementById("orcTamanho1").value;
+  const qtd1 = parseInt(document.getElementById("orcQtd1").value,10);
+
+  const sabor2 = document.getElementById("orcSabor2").value;
+  const tamanho2 = document.getElementById("orcTamanho2").value;
+  const qtd2 = parseInt(document.getElementById("orcQtd2").value,10);
+
+  const formaPagamento = document.getElementById("formaPagamentoOrcamento").value;
   const totalText = document.getElementById("totalOrcamento").textContent;
-  if(!data || !qtd || !totalText){ alert("Preencha data, sabor, tamanho e quantidade."); return; }
+
+  if(!data){ alert("Selecione a data do evento."); return; }
+  if(!sabor1 || !tamanho1 || !qtd1 || qtd1 <= 0){ alert("Preencha o primeiro sabor, tamanho e quantidade."); return; }
+  if (sabor2 && (!tamanho2 || !qtd2 || qtd2 <= 0)) { alert("Preencha o tamanho e quantidade do segundo sabor ou remova a seleção."); return; }
+  if(!formaPagamento){ alert("Selecione a forma de pagamento."); return; }
+  if(!totalText){ alert("O orçamento não foi calculado corretamente."); return; }
 
   const dataFormat = new Date(data).toLocaleDateString("pt-BR");
   let msg = "🎉 *ORÇAMENTO - PIPOCANDO ALEGRIA*\n\n";
   msg += `📅 *Data do Evento:* ${dataFormat}\n`;
-  msg += `🍿 *Sabor:* ${sabor}\n`;
-  msg += `📏 *Tamanho:* ${tamanho}\n`;
-  msg += `🔢 *Quantidade:* ${qtd}\n`;
-  msg += `${totalText}\n\n`;
+  msg += `\n🍿 *Itens:*\n`;
+  msg += `1. ${sabor1} (${tamanho1}) — ${qtd1} unidades\n`;
+  if (sabor2) {
+    msg += `2. ${sabor2} (${tamanho2}) — ${qtd2} unidades\n`;
+  }
+  msg += `\n${totalText}\n`;
+  msg += `💳 *Forma de Pagamento:* ${formaPagamento}\n\n`;
   msg += "⚠️ *Observações:* Enviar confirmação e pagamento via PIX para garantir a reserva.";
-  const url = `https://wa.me/${556182193378}?text=${encodeURIComponent(msg)}`;
+  const url = `https://wa.me/${NUM_WHATS}?text=${encodeURIComponent(msg)}`;
   window.open(url,'_blank');
 }
 </script>
